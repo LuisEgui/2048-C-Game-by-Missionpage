@@ -701,6 +701,7 @@ void game_end_check(Game* Game, GameLog* GameLog, GameInterf* GameInterf){
         
         if(try_again_screen(0, GameInterf) == 'n'){
             GameLog->response =  -1;
+            exit(EXIT_SUCCESS);
         }else
             Game->win *= 2;
         
@@ -710,6 +711,8 @@ void game_end_check(Game* Game, GameLog* GameLog, GameInterf* GameInterf){
         if(try_again_screen(1, GameInterf) == 'y'){
             start_grid(Game);
             GameLog->response = 0;
+        }else if(try_again_screen(1, GameInterf) == 'n'){
+            exit(EXIT_SUCCESS);
         }
     }
     
